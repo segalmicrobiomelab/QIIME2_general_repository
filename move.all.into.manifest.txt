@@ -1,0 +1,11 @@
+# Sequences come out of Illumina already de-multiplexed
+# Need to put them into one folder to import in QIIME2
+# (forward and reverse samples are in two samples; in individual folders) 
+# This should move everything into the 
+
+# Make the "target" folder
+mkdir ../target
+mv */* ../target/
+
+# This should move all files "*" into "target" folder - this should be where you input the manifest 
+
