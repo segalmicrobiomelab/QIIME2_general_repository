@@ -3,3 +3,8 @@
 ### Manifest 
 
 ### Benjamin G. Wu 
+### Code is currently updated to run locally 
+### SLURM/SBATCH code is under "header.hpc.sh" 
+
+### QIIME2 all commands should be run as described 
+### Classifier training can be used w/ different databases/gene repositories 
