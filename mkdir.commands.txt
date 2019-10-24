@@ -1,0 +1,9 @@
+# Make sure you don't make directory_7 
+
+mkdir QIIME2_2_import
+mkdir QIIME2_3_demux
+mkdir QIIME2_4_DADA2
+mkdir QIIME2_6_Tree
+mkdir QIIME2_7_core_metrics
+mkdir QIIME2_8_taxonomy
+
