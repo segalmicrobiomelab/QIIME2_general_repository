@@ -8,3 +8,5 @@
 
 ### QIIME2 all commands should be run as described 
 ### Classifier training can be used w/ different databases/gene repositories 
+
+### Imran doesn't know how to use Git 
