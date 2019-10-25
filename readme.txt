@@ -12,3 +12,7 @@
 ### Imran doesn't know how to use Git 
 ### Commits from local laptop @bananas
 ### Now working to edit 
+
+### Will update with final code used for upstream QIIME2
+### Will do generalized code 
+### Last updated October 24, 2019
