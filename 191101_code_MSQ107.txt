@@ -1,0 +1,170 @@
+### September 19, 2019 Wednesday 
+### Code QIIME2 Import 
+### Manifest 
+
+#####
+#####
+#####
+
+Moving all sequences 
+
+# Sequences come out of Illumina already de-multiplexed
+# Need to put them into one folder to import in QIIME2
+# (forward and reverse samples are in two samples; in individual folders) 
+# This should move everything into the 
+
+# Make the "target" folder
+mkdir ../target
+mv */* ../target/
+
+# This should move all files "*" into "target" folder - this should be where you input the manifest 
+
+#####
+#####
+#####
+
+Forward primers
+TCGTCGGCAGCGTCAGATGTGTATAAGAGACAG
+
+Reverse primers
+GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG
+
+
+CCTACGGGNGGCWGCAG
+GACTACHVGGGTATCTAATCC
+
+mkdir 
+
+mkdir QIIME2_2_import
+mkdir QIIME2_3_demux
+mkdir QIIME2_4_DADA2
+mkdir QIIME2_6_Tree
+mkdir QIIME2_7_core_metrics
+mkdir QIIME2_8_taxonomy
+
+#####
+#####
+#####
+
+cp /gpfs/data/sequence/results/segallab/2019-09-20/fastq/lane1_S1_L001_I1_001.fastq.gz /gpfs/home/wub02/projects/time_course_mice/QIIME2_2_import/barcodes.fastq.gz
+cp /gpfs/data/sequence/results/segallab/2019-09-20/fastq/lane1_S1_L001_R1_001.fastq.gz /gpfs/home/wub02/projects/time_course_mice/QIIME2_2_import/forward.fastq.gz
+cp /gpfs/data/sequence/results/segallab/2019-09-20/fastq/lane1_S1_L001_R2_001.fastq.gz /gpfs/home/wub02/projects/time_course_mice/QIIME2_2_import/reverse.fastq.gz
+
+
+module add miniconda2/4.5.4
+source activate qiime2-2019.7
+
+qiime tools import \
+  --type EMPPairedEndSequences \
+  --input-path /gpfs/home/wub02/projects/transplant.mouse.run/2_fastq \
+  --output-path /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_3_demux/emp-paired-end-sequences.qza
+
+qiime demux emp-paired \
+  --i-seqs /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_3_demux/emp-paired-end-sequences.qza \
+  --m-barcodes-file /gpfs/home/wub02/projects/transplant.mouse.run/map/MSQ.map.107.QIIME2.txt \
+  --m-barcodes-column BarcodeSequence \
+  --o-per-sample-sequences /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_3_demux/demux.qza \
+  --p-rev-comp-barcodes \
+  --p-rev-comp-mapping-barcodes \
+  --o-error-correction-details /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_3_demux/demux-details.qza
+
+qiime demux summarize \
+  --i-data /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_3_demux/demux.qza \
+  --o-visualization /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_3_demux/demux.qzv
+
+### DADA2
+
+qiime dada2 denoise-paired \
+  --i-demultiplexed-seqs /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_3_demux/demux.qza \
+  --p-trim-left-f 13 \
+  --p-trim-left-r 13 \
+  --p-trunc-len-f 150 \
+  --p-trunc-len-r 150 \
+  --p-n-threads 0 \
+  --o-table /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/table.qza \
+  --o-representative-sequences /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/rep-seqs.qza \
+  --o-denoising-stats /gpfs/home/wub02/projects/transplant.mouse.run/denoising-stats.qza
+
+qiime feature-table summarize \
+  --i-table /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/table.qza \
+  --o-visualization /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/table.qzv \
+  --m-sample-metadata-file /gpfs/home/wub02/projects/transplant.mouse.run/map/MSQ.map.107.QIIME2.txt
+
+qiime feature-table tabulate-seqs \
+  --i-data /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/rep-seqs.qza \
+  --o-visualization /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/rep-seqs.qzv
+
+qiime metadata tabulate \
+  --m-input-file /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/denoising-stats.qza \
+  --o-visualization /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/denoising-stats.qzv
+
+##### Quality Control 
+
+qiime quality-control exclude-seqs \
+  --i-query-sequences /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/rep-seqs.qza \
+  --i-reference-sequences /gpfs/home/wub02/projects/transplant.mouse.run/greengenes/99_otus.qza \
+  --p-method vsearch \
+  --p-perc-identity 0.99 \
+  --p-perc-query-aligned 0.99 \
+  --p-threads 16 \
+  --o-sequence-hits /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/hits_quality.qza \
+  --o-sequence-misses /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/misses_quality.qza \
+  --verbose
+
+qiime feature-table filter-features \
+  --i-table /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/table.qza \
+  --m-metadata-file /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/misses_quality.qza \
+  --o-filtered-table /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/no-miss-table.qza \
+  --p-exclude-ids
+
+qiime feature-table summarize \
+  --i-table /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/no-miss-table.qza \
+  --o-visualization /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/no-miss-table.qzv \
+  --m-sample-metadata-file /gpfs/home/wub02/projects/transplant.mouse.run/map/MSQ.map.107.QIIME2.txt 
+
+qiime feature-table tabulate-seqs \
+  --i-data /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/hits_quality.qza \
+  --o-visualization /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/hits_quality.qzv
+
+
+##### Tree
+
+qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/hits_quality.qza \
+  --o-alignment /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_6_Tree/aligned-rep-seqs.qza \
+  --o-masked-alignment /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_6_Tree/masked-aligned-rep-seqs.qza \
+  --o-tree /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_6_Tree/unrooted-tree.qza \
+  --o-rooted-tree /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_6_Tree/rooted-tree.qza
+
+##### Metrics
+
+qiime diversity core-metrics-phylogenetic \
+  --i-phylogeny /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_6_Tree/rooted-tree.qza \
+  --i-table /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/no-miss-table.qza \
+  --p-sampling-depth 1000 \
+  --m-metadata-file /gpfs/home/wub02/projects/transplant.mouse.run/map/MSQ.map.107.QIIME2.txt \
+  --output-dir /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_7_core_metrics
+
+##### Taxonomy 99%
+
+#####
+
+
+99% Taxanomoy from straight DADA2
+
+qiime feature-classifier classify-sklearn \
+  --i-classifier /gpfs/home/wub02/projects/transplant.mouse.run/greengenes/99_classifier.qza \
+  --i-reads /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/hits_quality.qza \
+  --o-classification /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_8_taxonomy/taxonomy_DADA2_99.qza
+
+qiime taxa barplot \
+  --i-table  /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_4_DADA2/no-miss-table.qza \
+  --i-taxonomy /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_8_taxonomy/taxonomy_DADA2_99.qza \
+  --m-metadata-file /gpfs/home/wub02/projects/transplant.mouse.run/map/MSQ.map.107.QIIME2.txt \
+  --o-visualization /gpfs/home/wub02/projects/transplant.mouse.run/QIIME2_8_taxonomy/taxa-bar-plots_DADA2_99.qzv
+
+#####
+#####
+#####
+#####
+#####
