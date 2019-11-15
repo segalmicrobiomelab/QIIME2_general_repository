@@ -88,25 +88,34 @@ qiime taxa barplot \
 
 ### Alpha diversity metrics
 
+# evenness_vector.qza
+# observed_otus_vector.qza
+# shannon_vector.qza
+
 qiime diversity alpha-rarefaction \
-  --i-table table.qza \
-  --i-phylogeny rooted-tree.qza \
+  --i-table /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/no-miss-table-dada2.qza \
+  --i-phylogeny /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_6_Tree/rooted-tree_quality.qza \
   --p-max-depth 1000 \
-  --m-metadata-file sample-metadata.tsv \
-  --o-visualization alpha-rarefaction.qzv
+  --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.runs/map/BX_Sputum_convert.txt \
+  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_7_core_metrics_norev_alpha/alpha-rarefaction.qzv
 
 qiime diversity alpha-group-significance \
-  --i-alpha-diversity core-metrics-results/faith_pd_vector.qza \
-  --m-metadata-file sample-metadata.tsv \
-  --o-visualization core-metrics-results/faith-pd-group-significance.qzv
+  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_7_core_metrics_norev_qualitys/faith_pd_vector.qza \
+  --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.runs/map/BX_Sputum_convert.txt \
+  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_7_core_metrics_norev_qualitys/faith_pd_vector.qzv
 
 qiime diversity alpha-group-significance \
-  --i-alpha-diversity core-metrics-results/evenness_vector.qza \
-  --m-metadata-file sample-metadata.tsv \
-  --o-visualization core-metrics-results/evenness-group-significance.qzv
-
+  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_7_core_metrics_norev_quality/evenness_vector.qza \
+  --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.runs/map/BX_Sputum_convert.txt \
+  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_7_core_metrics_norev_quality/evenness_vector.qzv
 
 qiime diversity alpha-group-significance \
-  --i-alpha-diversity ./core-metrics-results/faith_pd_vector.qza \
-  --m-metadata-file ./metadata.tsv \
-  --o-visualization ./core-metrics-results/faiths_pd_statistics.qzv
+  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_7_core_metrics_norev_quality/shannon_vector.qza \
+  --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.runs/map/BX_Sputum_convert.txt \
+  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_7_core_metrics_norev_quality/shannon_vector.qzv
+
+qiime diversity alpha-group-significance \
+  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_7_core_metrics_norev_quality/observed_otus_vector.qza \
+  --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.runs/map/BX_Sputum_convert.txt \
+  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_7_core_metrics_norev_quality/observed_otus_vector.qzv
+
