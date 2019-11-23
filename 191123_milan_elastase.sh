@@ -210,21 +210,22 @@ qiime diversity alpha-rarefaction \
   --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics/alpha-rarefaction.qzv
 
 qiime diversity alpha-group-significance \
-  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics_norev_qualitys/faith_pd_vector.qza \
+  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics/faith_pd_vector.qza \
   --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.run/map/BX_Sputum_convert.txt \
   --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics/faith_pd_vector.qzv
 
 qiime diversity alpha-group-significance \
-  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics_norev_quality/evenness_vector.qza \
+  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics/evenness_vector.qza \
   --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.run/map/BX_Sputum_convert.txt \
   --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics/evenness_vector.qzv
 
 qiime diversity alpha-group-significance \
-  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics_norev_quality/shannon_vector.qza \
+  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics/shannon_vector.qza \
   --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.run/map/BX_Sputum_convert.txt \
   --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics/shannon_vector.qzv
 
 qiime diversity alpha-group-significance \
-  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics_norev_quality/observed_otus_vector.qza \
+  --i-alpha-diversity /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics/observed_otus_vector.qza \
   --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.run/map/BX_Sputum_convert.txt \
   --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics/observed_otus_vector.qzv
+
