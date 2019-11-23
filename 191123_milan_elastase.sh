@@ -153,8 +153,8 @@ qiime metadata tabulate \
 #  --p-exclude-ids
 
 qiime feature-table summarize \
-  --i-table /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/no-miss-table-dada2_norev.qza \
-  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/no-miss-table-dada2_norev.qzv \
+  --i-table /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/no-miss-table-dada2.qza \
+  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/no-miss-table-dada2.qzv \
   --m-sample-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.run/map/BX_Sputum_convert.txt
 
 qiime feature-table tabulate-seqs \
@@ -180,7 +180,7 @@ qiime phylogeny align-to-tree-mafft-fasttree \
 
 qiime diversity core-metrics-phylogenetic \
   --i-phylogeny /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_6_Tree/rooted-tree_quality.qza \
-  --i-table /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/no-miss-table-dada2_norev.qza \
+  --i-table /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/no-miss-table-dada2.qza \
   --p-sampling-depth 1000 \
   --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.run/map/BX_Sputum_convert.txt  \
   --output-dir /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics
