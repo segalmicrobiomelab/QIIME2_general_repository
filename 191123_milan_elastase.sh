@@ -126,40 +126,40 @@ qiime feature-table summarize \
   --m-sample-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.run/map/BX_Sputum_convert.txt
 
 qiime feature-table tabulate-seqs \
-  --i-data /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/rep-seqs.qza \
+  --i-data /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/rep-seqs.qza \
   --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/rep-seqs.qzv
 
 qiime metadata tabulate \
-  --m-input-file /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/denoising-stats.qza \
-  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/denoising-stats.qzv
+  --m-input-file /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/denoising-stats.qza \
+  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/denoising-stats.qzv
 
 ### Quality filter 
 
 # qiime quality-control exclude-seqs \
-#  --i-query-sequences  /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/rep-seqs_norev.qza \
-#  --i-reference-sequences /gpfs/scratch/wub02/projects/milan.elastase.runs/greengenes/99_otus.qza \
+#  --i-query-sequences  /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/rep-seqs_norev.qza \
+#  --i-reference-sequences /gpfs/scratch/wub02/projects/milan.elastase.run/greengenes/99_otus.qza \
 #  --p-method vsearch \
 #  --p-perc-identity 0.99 \
 #  --p-perc-query-aligned 0.99 \
 #  --p-threads 16 \
-#  --o-sequence-hits /gpfs/scratch/wub02/projects/milan.elastase.runss/QIIME2_4_DADA2/hits_quality.qza \
-#  --o-sequence-misses /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/misses_quality.qza \
+#  --o-sequence-hits /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/hits_quality.qza \
+#  --o-sequence-misses /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/misses_quality.qza \
 #  --verbose
 
 # qiime feature-table filter-features \
-#  --i-table /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/table.qza \
-#  --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/misses_quality.qza \
-#  --o-filtered-table /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/no-miss-table-dada2.qza \
+#  --i-table /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/table.qza \
+#  --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/misses_quality.qza \
+#  --o-filtered-table /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/no-miss-table-dada2.qza \
 #  --p-exclude-ids
 
 qiime feature-table summarize \
-  --i-table /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/no-miss-table-dada2_norev.qza \
-  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/no-miss-table-dada2_norev.qzv \
-  --m-sample-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.runs/map/BX_Sputum_convert.txt
+  --i-table /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/no-miss-table-dada2_norev.qza \
+  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/no-miss-table-dada2_norev.qzv \
+  --m-sample-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.run/map/BX_Sputum_convert.txt
 
 qiime feature-table tabulate-seqs \
-  --i-data /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/hits_quality.qza \
-  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/hits_quality.qzv
+  --i-data /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/hits_quality.qza \
+  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/hits_quality.qzv
 
 #####
 #####
@@ -170,35 +170,35 @@ qiime feature-table tabulate-seqs \
 ##### Tree
 
 qiime phylogeny align-to-tree-mafft-fasttree \
-  --i-sequences /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/hits_quality.qza \
-  --o-alignment /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_6_Tree/aligned-rep-seqs_quality.qza \
-  --o-masked-alignment /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_6_Tree/masked-aligned-rep-seqs_quality.qza \
-  --o-tree /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_6_Tree/unrooted-tree_quality.qza \
-  --o-rooted-tree /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_6_Tree/rooted-tree_quality.qza
+  --i-sequences /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/hits_quality.qza \
+  --o-alignment /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_6_Tree/aligned-rep-seqs_quality.qza \
+  --o-masked-alignment /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_6_Tree/masked-aligned-rep-seqs_quality.qza \
+  --o-tree /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_6_Tree/unrooted-tree_quality.qza \
+  --o-rooted-tree /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_6_Tree/rooted-tree_quality.qza
 
 ##### Metrics
 
 qiime diversity core-metrics-phylogenetic \
-  --i-phylogeny /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_6_Tree/rooted-tree_quality.qza \
-  --i-table /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/no-miss-table-dada2_norev.qza \
+  --i-phylogeny /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_6_Tree/rooted-tree_quality.qza \
+  --i-table /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/no-miss-table-dada2_norev.qza \
   --p-sampling-depth 1000 \
-  --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.runs/map/BX_Sputum_convert.txt  \
-  --output-dir /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_7_core_metrics
+  --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.run/map/BX_Sputum_convert.txt  \
+  --output-dir /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_7_core_metrics
 
 ##### Taxonomy 99%
 
 # 99% Taxanomoy from straight DADA2
 
 qiime feature-classifier classify-sklearn \
-  --i-classifier /gpfs/scratch/wub02/projects/milan.elastase.runs/greengenes/99_classifier.qza \
-  --i-reads /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/hits_quality.qza \
-  --o-classification /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_8_taxonomy/taxonomy.qza
+  --i-classifier /gpfs/scratch/wub02/projects/milan.elastase.run/greengenes/99_classifier.qza \
+  --i-reads /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/hits_quality.qza \
+  --o-classification /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_8_taxonomy/taxonomy.qza
 
 qiime taxa barplot \
-  --i-table /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_4_DADA2/no-miss-table-dada2.qza \
-  --i-taxonomy /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_8_taxonomy/taxonomy.qza \
-  --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.runs/map/BX_Sputum_convert.txt \
-  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.runs/QIIME2_8_taxonomy/taxa-bar-plots_norev_quality.qzv
+  --i-table /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_4_DADA2/no-miss-table-dada2.qza \
+  --i-taxonomy /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_8_taxonomy/taxonomy.qza \
+  --m-metadata-file /gpfs/scratch/wub02/projects/milan.elastase.run/map/BX_Sputum_convert.txt \
+  --o-visualization /gpfs/scratch/wub02/projects/milan.elastase.run/QIIME2_8_taxonomy/taxa-bar-plots_norev_quality.qzv
 
 #### Alpha diversity 
 
