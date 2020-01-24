@@ -1,0 +1,3 @@
+module add aspera-connect/3.7.7  
+
+ascp -i /gpfs/home/wub02/key/aspera.openssh.txt -QT -l100m -k1 -d  /gpfs/data/sequence/results/segallab/2019-09-03/fastq/ subasp@upload.ncbi.nlm.nih.gov:uploads/wub02@nyumc.org_S5ogabFT
