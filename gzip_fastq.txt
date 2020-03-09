@@ -1,0 +1,35 @@
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ12/2_fastq/forward.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ12/2_fastq/forward.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ12/2_fastq/reverse.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ12/2_fastq/reverse.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ12/2_fastq/barcodes.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ12/2_fastq/barcodes.fastq.gz
+
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ5/2_fastq/forward.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ5/2_fastq/forward.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ5/2_fastq/reverse.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ5/2_fastq/reverse.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ5/2_fastq/barcodes.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ5/2_fastq/barcodes.fastq.gz
+
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ44/2_fastq/forward.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ44/2_fastq/forward.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ44/2_fastq/reverse.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ44/2_fastq/reverse.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ44/2_fastq/barcodes.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ44/2_fastq/barcodes.fastq.gz
+
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ45/2_fastq/forward.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ45/2_fastq/forward.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ45/2_fastq/reverse.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ45/2_fastq/reverse.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ45/2_fastq/barcodes.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ45/2_fastq/barcodes.fastq.gz
+
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ46/2_fastq/forward.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ46/2_fastq/forward.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ46/2_fastq/reverse.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ46/2_fastq/reverse.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ46/2_fastq/barcodes.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ46/2_fastq/barcodes.fastq.gz
+
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ47/2_fastq/forward.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ47/2_fastq/forward.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ47/2_fastq/reverse.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ47/2_fastq/reverse.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ47/2_fastq/barcodes.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ47/2_fastq/barcodes.fastq.gz
+
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ48/2_fastq/forward.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ48/2_fastq/forward.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ48/2_fastq/reverse.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ48/2_fastq/reverse.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ48/2_fastq/barcodes.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ48/2_fastq/barcodes.fastq.gz
+
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ49/2_fastq/forward.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ49/2_fastq/forward.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ49/2_fastq/reverse.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ49/2_fastq/reverse.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ49/2_fastq/barcodes.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ49/2_fastq/barcodes.fastq.gz
+
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ50/2_fastq/forward.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ50/2_fastq/forward.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ50/2_fastq/reverse.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ50/2_fastq/reverse.fastq.gz
+gzip /gpfs/scratch/wub02/projects/SRA/niosh/MSQ50/2_fastq/barcodes.fastq /gpfs/scratch/wub02/projects/SRA/niosh/MSQ50/2_fastq/barcodes.fastq.gz
