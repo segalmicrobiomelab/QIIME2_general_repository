@@ -16,7 +16,7 @@
 
 module purge; module load anaconda3/cpu/5.3.1
 unset PYTHONPATH; source activate qiime2-2020.2
-Module load slurm
+module load slurm
 
 ##### /gpfs/scratch/wub02/projects/
 ##### mkdir msq90.run
@@ -64,7 +64,6 @@ qiime demux emp-paired \
   --m-barcodes-file /gpfs/scratch/wub02/projects/msq90.run/map/MSQ.90.Map.qiime2.txt \
   --m-barcodes-column BarcodeSequence \
   --o-per-sample-sequences /gpfs/scratch/wub02/projects/msq90.run/QIIME2_3_demux/demux.qza \
-  --p-rev-comp-barcodes \
   --p-rev-comp-mapping-barcodes \
   --o-error-correction-details /gpfs/scratch/wub02/projects/msq90.run/QIIME2_3_demux/demux-details.qza
 
